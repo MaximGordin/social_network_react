@@ -1,0 +1,12 @@
+.aside {
+    grid-area: nav;
+    background-color: green;
+  }
+
+  .aside a{
+    color: #fff;
+  }
+
+  .aside a.active{
+    color: gold;
+  }
