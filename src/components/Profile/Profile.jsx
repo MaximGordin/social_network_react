@@ -2,12 +2,13 @@ import React  from 'react';
 import classes from './Profile.module.css';
 import MyPost from './MyPosts/MyPosts';
 
-const Profile = () =>{
+
+
+const Profile = (props) =>{
     return (
         <main className={classes.profile}>
             Профайл
-            <MyPost/>
-            
+            <MyPost postData={props.postData} />
         </main>
     )
 }

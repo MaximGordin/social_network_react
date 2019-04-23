@@ -1,18 +1,23 @@
-
 import React from 'react';
-
 import Post from './Post/Post';
 
 
-const MyPost = () =>{
+
+
+
+
+
+const MyPost = (props) =>{
+    let postElements = props.postData.map( el => <Post message={el.message}/> )
     return (
         <div>
             MyPosts
-            
-            <Post message='Post 1'/>
-            <Post message='Post 2'/>
-            <Post message='Post 3'/>
-            <Post message='Post 6'/>
+            <div className="newpost">
+                <textarea></textarea>
+                <br/>
+                <button>Отправить</button>
+            </div>
+            {postElements}
         </div>
     )
 }

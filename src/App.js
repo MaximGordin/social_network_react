@@ -8,7 +8,9 @@ import { BrowserRouter,Route } from 'react-router-dom'
 
 
 
-const App = () => {
+const App = (props) => {
+ 
+
 
   return (
     <BrowserRouter>
@@ -19,8 +21,8 @@ const App = () => {
           <Aside />
 
           <main className='main'>
-            <Route  path="/profile" component={Profile} />
-            <Route exact path="/dialogs" component={Dialogs} />
+            <Route  path="/profile" render={() => <Profile postData={props.postData}/> } />
+            <Route  path="/dialogs" render={ () => <Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/> } />
           </main>
         </div>
 
