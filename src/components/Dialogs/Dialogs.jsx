@@ -10,13 +10,24 @@ const Dialogs = (props) => {
     let dialogUserElements = props.dialogsData.map( el => <DialogUser name={el.name} id={el.id}/>)
     let dialogMessageElements = props.messagesData.map( el => <DialogMessage message={el.message}/>)
 
+    // let addMessage = () => {
+
+    // }
+
     return (
         <div className={classes.dialogsWrap}>
             <div className={classes.dialogs}>
                {dialogUserElements}
             </div>
-            <div className="message">
-                {dialogMessageElements}
+            <div className={classes.message}>
+                <div className={classes.messageArea}>
+                    {dialogMessageElements}
+                </div>
+                <div className="newMessage">
+                    {/* <textarea ref={}></textarea>
+                    <button onClick={addMessage}>Отправить</button> */}
+                </div>
+                
             </div>
         </div>
 

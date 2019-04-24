@@ -18,7 +18,7 @@ const App = (props) => {
 
         <div className="app-wrap">
           <Header />
-          <Aside />
+          <Aside  friendsData={props.friendsData} />
 
           <main className='main'>
             <Route  path="/profile" render={() => <Profile postData={props.postData}/> } />

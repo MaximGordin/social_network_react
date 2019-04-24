@@ -1,6 +1,7 @@
 .aside {
     grid-area: nav;
     background-color: green;
+    padding: 10px;
   }
 
   .aside a{

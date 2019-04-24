@@ -1,4 +1,3 @@
-
 let state = {
     dialogsPage: {
         dialogsData: [
@@ -13,7 +12,7 @@ let state = {
             { id: 3, message: 'Well' }
         ]
     },
-    
+
     profilePage: {
         postData: [
             { id: 1, message: 'Post 1' },
@@ -21,8 +20,15 @@ let state = {
             { id: 3, message: 'Post 3' },
             { id: 4, message: 'Post 4' }
         ]
-    }
-   
+    },
 
+    aside: {
+        friendsData: [
+            {id: 1, name: 'Катя'},
+            {id: 2, name: 'Петя'},
+            {id: 3, name: 'Валя'}
+        ]
+    }
 }
+
 export default state;

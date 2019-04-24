@@ -4,3 +4,9 @@
 .dialogs{
     flex-basis: 20%;
 }
+.message{
+    flex-basis: 100%; 
+}
+.messageArea{
+    background-color: #fff;
+}
