@@ -8,7 +8,7 @@ const Profile = (props) =>{
     return (
         <main className={classes.profile}>
             Профайл
-            <MyPost postData={props.postData} />
+            <MyPost newPostText={props.newPostText} updateNewPostChange={props.updateNewPostChange} addPost={props.addPost} postData={props.postData} />
         </main>
     )
 }
