@@ -21,7 +21,7 @@ const App = (props) => {
           <Aside  friendsData={props.friendsData} />
 
           <main className='main'>
-            <Route  path="/profile" render={() => <Profile updateNewPostChange={props.updateNewPostChange} addPost={props.addPost} newPostText={props.newPostText}  postData={props.postData}/> } />
+            <Route  path="/profile" render={() => <Profile  dispatch={props.dispatch} newPostText={props.newPostText}  postData={props.postData}/> } />
             <Route  path="/dialogs" render={ () => <Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/> } />
           </main>
         </div>

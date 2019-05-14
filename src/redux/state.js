@@ -1,3 +1,6 @@
+const UPDATE_NEW_POST_CHANGE = 'UPDATE-NEW-POST-CHANGE';
+const ADD_POST = 'ADD-POST';
+
 
 let store = {
     _state: {
@@ -36,26 +39,59 @@ let store = {
     getState() {
         return this._state;
     },
+    subscribe(observer) {
+        this.renderEntireTree = observer;
+    },
+    
     renderEntireTree() {
         console.log(1);
     },
-    addPost() {
-        let newPost = {
-            id: 5,
-            message: this._state.profilePage.newPostText
+
+    // addPost() {
+    //     let newPost = {
+    //         id: 5,
+    //         message: this._state.profilePage.newPostText
+    //     }
+    //     this._state.profilePage.postData.push(newPost);
+    //     this._state.profilePage.newPostText = "";
+    //     this.renderEntireTree(this._state)
+    // },
+    // updateNewPostChange(newText) {
+    //     this._state.profilePage.newPostText = newText;
+    //     this.renderEntireTree(this._state)
+    // },
+
+    dispatch(action) {
+        if(action.type ===  ADD_POST){
+            let newPost = {
+                id: 5,
+                message: this._state.profilePage.newPostText
+            }
+            this._state.profilePage.postData.push(newPost);
+            this._state.profilePage.newPostText = "";
+            this.renderEntireTree(this._state)
         }
-        this._state.profilePage.postData.push(newPost);
-        this._state.profilePage.newPostText = "";
-        this.renderEntireTree(this._state)
-    },
-    updateNewPostChange(newText) {
-        this._state.profilePage.newPostText = newText;
-        this.renderEntireTree(this._state)
-    },
-    subscribe(observer) {
-        this.renderEntireTree = observer;
+        else if(action.type === UPDATE_NEW_POST_CHANGE){
+            this._state.profilePage.newPostText = action.newText;
+            this.renderEntireTree(this._state)
+        }
     }
+    
 }
+export let addPostActionCreator = () => {
+    return (
+        {type: ADD_POST }
+    )
+}
+export let updateNewPostChangeActionCreator = (text) => {
+    return (
+        {
+            type: UPDATE_NEW_POST_CHANGE,
+            newText: text
+        }
+    )
+}
+
 
 
 // export  {addPost,subscribe,updateNewPostChange};
