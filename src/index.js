@@ -13,9 +13,11 @@ let renderEntireTree = (state) =>{
         dispatch={store.dispatch.bind(store)}
         
         newPostText={state.profilePage.newPostText}
+        postData={state.profilePage.postData}
         messagesData={state.dialogsPage.messagesData}
         dialogsData={state.dialogsPage.dialogsData}
-        postData={state.profilePage.postData}
+        dialogsPage={state.dialogsPage}
+        
         friendsData={state.aside.friendsData} />, document.getElementById('root'));
 }
 

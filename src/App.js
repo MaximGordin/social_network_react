@@ -22,7 +22,7 @@ const App = (props) => {
 
           <main className='main'>
             <Route  path="/profile" render={() => <Profile  dispatch={props.dispatch} newPostText={props.newPostText}  postData={props.postData}/> } />
-            <Route  path="/dialogs" render={ () => <Dialogs dialogsData={props.dialogsData} messagesData={props.messagesData}/> } />
+            <Route  path="/dialogs" render={ () => <Dialogs dispatch={props.dispatch} dialogsPage={props.dialogsPage} dialogsData={props.dialogsData} messagesData={props.messagesData}/> } />
           </main>
         </div>
 

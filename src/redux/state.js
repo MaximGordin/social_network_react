@@ -1,5 +1,7 @@
 const UPDATE_NEW_POST_CHANGE = 'UPDATE-NEW-POST-CHANGE';
 const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_MESSAGE_CHANGE = 'UPDATE-NEW-MESSAGE-CHANGE';
+const ADD_MESSAGE = 'ADD-MESSAGE';
 
 
 let store = {
@@ -15,7 +17,8 @@ let store = {
                 { id: 1, message: 'Hello' },
                 { id: 2, message: 'How are you' },
                 { id: 3, message: 'Well' }
-            ]
+            ],
+            newMessageText: ""
         },
     
         profilePage: {
@@ -70,19 +73,34 @@ let store = {
             this._state.profilePage.postData.push(newPost);
             this._state.profilePage.newPostText = "";
             this.renderEntireTree(this._state)
-        }
-        else if(action.type === UPDATE_NEW_POST_CHANGE){
+        } else if(action.type === UPDATE_NEW_POST_CHANGE){
             this._state.profilePage.newPostText = action.newText;
+            this.renderEntireTree(this._state)
+        } else if (action.type === UPDATE_NEW_MESSAGE_CHANGE){
+            this._state.dialogsPage.newMessageText = action.newMessage;
+            this.renderEntireTree(this._state)
+        } else if (action.type === ADD_MESSAGE){
+
+            let newMessage = {
+                id: 1,
+                message: this._state.dialogsPage.newMessageText
+
+            }
+
+            this._state.dialogsPage.messagesData.push(newMessage);
+            this._state.dialogsPage.newMessageText = '';
             this.renderEntireTree(this._state)
         }
     }
     
 }
+
 export let addPostActionCreator = () => {
     return (
         {type: ADD_POST }
     )
 }
+
 export let updateNewPostChangeActionCreator = (text) => {
     return (
         {
@@ -91,7 +109,20 @@ export let updateNewPostChangeActionCreator = (text) => {
         }
     )
 }
+export let updateNewMessageChangeActionCreator = (text) => {
+    return (
+        {
+            type: UPDATE_NEW_MESSAGE_CHANGE,
+            newMessage: text
+        }
+    )
+}
 
+export let addMessageActionCreator = () => {
+    return (
+        {type: ADD_MESSAGE }
+    )
+}
 
 
 // export  {addPost,subscribe,updateNewPostChange};
