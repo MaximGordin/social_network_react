@@ -3,14 +3,14 @@ import classes from './Dialogs.module.css';
 import DialogUser from './DialogUser/DialogUser';
 import DialogMessage from './DialogMessage/DialogMessage'
 
-import {updateNewMessageChangeActionCreator,addMessageActionCreator} from '../../redux/state'
+import {updateNewMessageChangeActionCreator,addMessageActionCreator} from '../../redux/reducer-dialogs'
 
 const Dialogs = (props) => {
 
   
-
-    let dialogUserElements = props.dialogsData.map( el => <DialogUser name={el.name} id={el.id}/>)
-    let dialogMessageElements = props.messagesData.map( el => <DialogMessage message={el.message}/>)
+    debugger;
+    let dialogUserElements = props.dialogsPage.dialogsData.map( el => <DialogUser name={el.name} id={el.id}/>)
+    let dialogMessageElements = props.dialogsPage.messagesData.map( el => <DialogMessage message={el.message}/>)
 
     let onChangeMessage = (e) => {
         let text = e.target.value;

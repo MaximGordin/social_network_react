@@ -9,20 +9,19 @@ import { BrowserRouter,Route } from 'react-router-dom'
 
 
 const App = (props) => {
+
  
-
-
   return (
     <BrowserRouter>
       <div className="App">
 
         <div className="app-wrap">
           <Header />
-          <Aside  friendsData={props.friendsData} />
+          <Aside  aside={props.state.aside} />
 
           <main className='main'>
-            <Route  path="/profile" render={() => <Profile  dispatch={props.dispatch} newPostText={props.newPostText}  postData={props.postData}/> } />
-            <Route  path="/dialogs" render={ () => <Dialogs dispatch={props.dispatch} dialogsPage={props.dialogsPage} dialogsData={props.dialogsData} messagesData={props.messagesData}/> } />
+            <Route  path="/profile" render={() => <Profile  dispatch={props.dispatch} profilePage={props.state.profilePage}/> } />
+            <Route  path="/dialogs" render={ () => <Dialogs dispatch={props.dispatch} dialogsPage={props.state.dialogsPage}/> } />
           </main>
         </div>
 

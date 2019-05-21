@@ -8,7 +8,7 @@ const Aside = (props) => {
     return (
         <aside className={classes.aside}>
             <Menu/>
-            <Friends friendsData={props.friendsData}/>  
+            <Friends friendsData={props.aside.friendsData}/>  
         </aside>
     )
 }

@@ -3,22 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import store from'./redux/state.js';
-// import {addPost,subscribe, updateNewPostChange} from'./redux/state.js';
+import store from'./redux/redux-store';
+
 
 
 let renderEntireTree = (state) =>{
-       
+       debugger;
     ReactDOM.render(<App 
         dispatch={store.dispatch.bind(store)}
-        
-        newPostText={state.profilePage.newPostText}
-        postData={state.profilePage.postData}
-        messagesData={state.dialogsPage.messagesData}
-        dialogsData={state.dialogsPage.dialogsData}
-        dialogsPage={state.dialogsPage}
-        
-        friendsData={state.aside.friendsData} />, document.getElementById('root'));
+        state={state}
+         />, document.getElementById('root'));
 }
 
 renderEntireTree(store.getState());
