@@ -3,24 +3,20 @@ import classes from './Dialogs.module.css';
 import DialogUser from './DialogUser/DialogUser';
 import DialogMessage from './DialogMessage/DialogMessage'
 
-import {updateNewMessageChangeActionCreator,addMessageActionCreator} from '../../redux/reducer-dialogs'
+
 
 const Dialogs = (props) => {
-
-  
-    debugger;
     let dialogUserElements = props.dialogsPage.dialogsData.map( el => <DialogUser name={el.name} id={el.id}/>)
     let dialogMessageElements = props.dialogsPage.messagesData.map( el => <DialogMessage message={el.message}/>)
 
     let onChangeMessage = (e) => {
         let text = e.target.value;
-        props.dispatch(updateNewMessageChangeActionCreator(text));
+        props.changeMessage(text);
     }
 
-    let addMessage = () => {
-        props.dispatch(addMessageActionCreator())
+    let onAddMessage = () => {
+        props.addMessage();
     }
-
 
     return (
         <div className={classes.dialogsWrap}>
@@ -33,7 +29,7 @@ const Dialogs = (props) => {
                 </div>
                 <div className="newMessage">
                     <textarea value={props.dialogsPage.newMessageText} onChange={onChangeMessage}></textarea>
-                    <button onClick={addMessage}>Отправить</button>
+                    <button onClick={onAddMessage}>Отправить</button>
                 </div>
                 
             </div>

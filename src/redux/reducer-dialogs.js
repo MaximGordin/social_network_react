@@ -20,6 +20,7 @@ const  initDialogPage = {
 
 
 const reducerDialogs = (state=initDialogPage,action) => {
+    
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_CHANGE: 
             state.newMessageText = action.newMessage;
@@ -38,10 +39,11 @@ const reducerDialogs = (state=initDialogPage,action) => {
         default: 
             return state
     }
-   
+    return state
 }
 
 export let updateNewMessageChangeActionCreator = (text) => {
+
     return (
         {
             type: UPDATE_NEW_MESSAGE_CHANGE,

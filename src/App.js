@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Aside from './components/Aside/Aside';
 import Profile from './components/Profile/Profile';
-import Dialogs from './components/Dialogs/Dialogs';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 import { BrowserRouter,Route } from 'react-router-dom'
 
 
@@ -20,8 +20,8 @@ const App = (props) => {
           <Aside  aside={props.state.aside} />
 
           <main className='main'>
-            <Route  path="/profile" render={() => <Profile  dispatch={props.dispatch} profilePage={props.state.profilePage}/> } />
-            <Route  path="/dialogs" render={ () => <Dialogs dispatch={props.dispatch} dialogsPage={props.state.dialogsPage}/> } />
+            <Route  path="/profile" render={() => <Profile  store={props.store} /> } />
+            <Route  path="/dialogs" render={ () => <DialogsContainer store={props.store} /> } />
           </main>
         </div>
 
