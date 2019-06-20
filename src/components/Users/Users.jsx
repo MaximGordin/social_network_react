@@ -1,16 +1,14 @@
 import React from 'react';
+import * as axios from 'axios';
 
 
 let Users = (props) =>{
     if(props.users.length === 0){
-        props.setUsers(
-            [
-                {id: 5, name: 'Вася1', follow: true},
-                {id: 6, name: 'Петя2', follow: false},
-                {id: 7, name: 'Коля3', follow: true},
-                {id: 8, name: 'Валера4', follow: true}
-            ]
-        )
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+            props.setUsers(response.data.items)
+            debugger;
+        })
+        
     }
    
 
@@ -24,9 +22,9 @@ let Users = (props) =>{
         <div>
             {
                 props.users.map(el => 
-                    <div  key={el.id} >
+                    <div key={el.id} >
                         <h3>{el.name}</h3>
-                        {el.follow ?  <button onClick={()=> onUnfollow(el.id) }>unfollow</button> : <button onClick={()=> onFollow(el.id) }>follow</button>}
+                        {el.followed ?  <button onClick={()=> onUnfollow(el.id) }>unfollow</button> : <button onClick={()=> onFollow(el.id) }>follow</button>}
                        
                         <hr/>
                     </div>
