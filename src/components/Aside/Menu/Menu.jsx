@@ -14,7 +14,7 @@ const Menu = () => {
                         <NavLink to="/dialogs" activeClassName={classes.active}>Dialogs</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/music" activeClassName={classes.active}>Пункт меню 3</NavLink>
+                        <NavLink to="/users" activeClassName={classes.active}>Users</NavLink>
                     </li>
                     
                 </ul>

@@ -23,23 +23,25 @@ const reducerDialogs = (state=initDialogPage,action) => {
     
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_CHANGE: 
-            state.newMessageText = action.newMessage;
-            break;
+            return {
+                ...state,
+                newMessageText: action.newMessage
+            }
         case ADD_MESSAGE:
-                let newMessage = {
-                    id: 1,
-                    message: state.newMessageText
-        
-                }
-        
-                state.messagesData.push(newMessage);
-                state.newMessageText = '';
-                break;
+            let newMessage = {
+                id: 1,
+                message: state.newMessageText
+            }
+            
+            return {
+                ...state,
+                messagesData: [...state.messagesData, newMessage],
+                newMessageText: ''
+            }
                 
         default: 
             return state
     }
-    return state
 }
 
 export let updateNewMessageChangeActionCreator = (text) => {

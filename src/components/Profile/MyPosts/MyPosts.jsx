@@ -4,9 +4,8 @@ import Post from './Post/Post';
 
 
 const MyPost = (props) =>{
-
-    let postElements = props.profilePage.postData.map( el => <Post message={el.message}/> )
-
+    let postElements = props.profilePage.postData.map( el => <Post key={el.id} message={el.message}/> )
+    
     let onAddPost = () => {
         props.addPost();
     }

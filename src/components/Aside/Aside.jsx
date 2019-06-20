@@ -4,11 +4,11 @@ import Menu from './Menu/Menu';
 import Friends from './Friends/Friends';
 
 
-const Aside = (props) => {
+const Aside = () => {
     return (
         <aside className={classes.aside}>
             <Menu/>
-            <Friends friendsData={props.aside.friendsData}/>  
+            <Friends/>  
         </aside>
     )
 }

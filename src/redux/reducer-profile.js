@@ -15,22 +15,23 @@ const initProfilePage = {
 const reducerProfile = (state=initProfilePage,action) => {
     switch (action.type) {
         case ADD_POST: 
-            let newPost = {
-                id: 5,
-                message: state.newPostText
+            let newPost = {id: 5,message: state.newPostText};
+            return {
+                ...state,
+                postData: [...state.postData, newPost],
+                newPostText: ""
             }
-            state.postData.push(newPost);
-            state.newPostText = "";
-            break;
         case UPDATE_NEW_POST_CHANGE:
-            state.newPostText = action.newText;
-            break;
+                return {
+                    ...state,
+                    newPostText: action.newText,
+                }
                 
         default: 
             return state
     }
 
-    return state
+    // return state
 }
 
 export let addPostActionCreator = () => {

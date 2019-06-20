@@ -1,28 +1,33 @@
 import React from 'react';
 import classes from './Friends.module.css';
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const Friends = (props) => {
-
-    let friendsElement = props.friendsData.map( (el)=> {
-        return (
-            <div className={classes.item}>
-                <div className={classes.name}>
-                    <NavLink to={`friends/${el.id }`}>  
-                        {el.name} 
-                    </NavLink>
-                </div>
-            </div>
-        )
-    })
-
-
-
     return (
         <div className={classes.friends}>
-            {friendsElement}
+           
+            <div className={classes.name}>
+            <NavLink to={`friends/1`}>
+                Вася
+            </NavLink>
+            </div>
+       
+       
+            <div className={classes.name}>
+            <NavLink to={`friends/1`}>
+                Вася
+            </NavLink>
+            </div>
+        
+        
+            <div className={classes.name}>
+                <NavLink to={`friends/1`}>
+                    Вася
+                </NavLink>
+            </div>
+     
         </div>
     )
 }
-
+            
 export default Friends;

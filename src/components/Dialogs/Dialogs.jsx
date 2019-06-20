@@ -6,8 +6,8 @@ import DialogMessage from './DialogMessage/DialogMessage'
 
 
 const Dialogs = (props) => {
-    let dialogUserElements = props.dialogsPage.dialogsData.map( el => <DialogUser name={el.name} id={el.id}/>)
-    let dialogMessageElements = props.dialogsPage.messagesData.map( el => <DialogMessage message={el.message}/>)
+    let dialogUserElements = props.dialogsPage.dialogsData.map( el => <DialogUser key={el.id} name={el.name} id={el.id}/>)
+    let dialogMessageElements = props.dialogsPage.messagesData.map( el => <DialogMessage key={el.id} message={el.message}/>)
 
     let onChangeMessage = (e) => {
         let text = e.target.value;
