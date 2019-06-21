@@ -11,11 +11,12 @@ const itinUsers = {
 const reducerUsers = (state=itinUsers, action) =>{
     switch(action.type){
         case FOLLOW:
+            debugger;
             return {
                 ...state,
                 users: state.users.map(el => {
                     if(el.id === action.userId){
-                        return {...el, follow: true }
+                        return {...el, followed: true }
                     }
                     return el
                 })
@@ -26,7 +27,7 @@ const reducerUsers = (state=itinUsers, action) =>{
                 ...state,
                 users: state.users.map(el => {
                     if(el.id === action.userId){
-                        return {...el, follow: false}
+                        return {...el, followed: false}
                     }
                     return el
                 })

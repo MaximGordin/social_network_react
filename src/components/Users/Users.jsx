@@ -2,36 +2,42 @@ import React from 'react';
 import * as axios from 'axios';
 
 
-let Users = (props) =>{
-    if(props.users.length === 0){
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
-            props.setUsers(response.data.items)
-            debugger;
-        })
-        
-    }
-   
+class Users extends  React.Component{
 
-    let onFollow = (userId) =>{
-        props.follow(userId);
+   
+        
+    
+    componentDidMount() {
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => {
+            this.props.setUsers(response.data.items)
+        })
     }
-    let onUnfollow = (userId) =>{
-        props.unfollow(userId);
+
+
+    onFollow = (userId) =>{
+        debugger;
+        this.props.follow(userId);
     }
-    return (
-        <div>
+    onUnfollow = (userId) =>{
+        this.props.unfollow(userId);
+    }
+
+    render() {
+        return(
+            <div>
             {
-                props.users.map(el => 
+                this.props.users.map(el => 
                     <div key={el.id} >
                         <h3>{el.name}</h3>
-                        {el.followed ?  <button onClick={()=> onUnfollow(el.id) }>unfollow</button> : <button onClick={()=> onFollow(el.id) }>follow</button>}
+                        {el.followed ?  <button onClick={()=> this.onUnfollow(el.id) }>unfollow</button> : <button onClick={()=> this.onFollow(el.id) }>follow</button>}
                        
                         <hr/>
                     </div>
                  )
             }
         </div>
-    )  
+        )
+    }  
    
 
 }
