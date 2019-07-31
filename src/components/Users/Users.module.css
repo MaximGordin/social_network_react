@@ -1,0 +1,14 @@
+.pagination li{
+    display: inline-block;
+    border:1px solid #000;
+    padding: 3px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.pagination li.active{
+    background-color: #fff;
+    font-weight: bold;
+}
+.avatar{
+    width: 100px;
+}

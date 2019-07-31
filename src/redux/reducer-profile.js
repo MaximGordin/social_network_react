@@ -1,5 +1,6 @@
 const UPDATE_NEW_POST_CHANGE = 'UPDATE-NEW-POST-CHANGE';
-const ADD_POST = 'ADD-POST';
+const ADD_POST = 'ADD_POST';
+const SET_USER_PROFILE = 'SET_USER_PROFILE'
 
 
 const initProfilePage = {
@@ -9,7 +10,8 @@ const initProfilePage = {
         { id: 3, message: 'Post 3' },
         { id: 4, message: 'Post 4' }
     ],
-    newPostText: ""
+    newPostText: "",
+    profile: null
 }
 
 const reducerProfile = (state=initProfilePage,action) => {
@@ -22,10 +24,16 @@ const reducerProfile = (state=initProfilePage,action) => {
                 newPostText: ""
             }
         case UPDATE_NEW_POST_CHANGE:
-                return {
-                    ...state,
-                    newPostText: action.newText,
-                }
+            return {
+                ...state,
+                newPostText: action.newText,
+            }
+        case SET_USER_PROFILE:
+             
+            return {
+                ...state,
+                profile: action.profile
+            }
                 
         default: 
             return state
@@ -47,5 +55,13 @@ export let updateNewPostChangeActionCreator = (text) => {
             newText: text
         }
     )
+}
+
+export let setUserProfile = (profile) =>{
+
+    return{
+        type: SET_USER_PROFILE,
+        profile
+    }
 }
 export default reducerProfile
